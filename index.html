@@ -24,7 +24,7 @@
   font-size: 200px;
 }
 </style>
-
+<class="bg" onload="document.getElementById('inputNama').focus()" style="background-color: #98cdff"
 <nav class="navbar navbar-inverse" >
   <div class="container-fluid">
     <div class="navbar-header">
@@ -176,5 +176,60 @@
 </div>
 </div>
 </section>
+
+<section id="Registrasi">
+      <div class="container" style="margin-top: 100px">
+        <form action="index.html" method="get" id="form" class="row g-3" onsubmit="validasi()">
+          <div class="col-md-12 text-center">
+            <h2>Form Registrasi</h2>
+          </div>
+          <div class="col-md-12">
+            <i class="bi bi-person"></i>
+            <label for="inputNama" id="form" class="form-label">Nama</label>
+            <input type="text" class="form-control" id="inputNama" onkeydown="next(event,'inputEmail')" />
+          </div>
+          <div class="col-md-12">
+            <i class="bi bi-at"></i>
+            <label for="inputEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="inputEmail" onkeydown="next(event,'inputPassword')" />
+          </div>
+          <div class="col-md-12">
+            <i class="bi bi-at"></i>
+            <label for="inputEmail" class="form-label">Password</label>
+            <input type="password" class="form-control" id="inputPassword" onkeydown="next(event,'inputPassword2')" />
+          </div>
+          <div class="col-md-12">
+            <i class="bi bi-at"></i>
+            <label for="inputEmail" class="form-label">Ulangi Password</label>
+            <input type="password" class="form-control" id="inputPassword2" />
+          </div>
+          <div class="col-md-12"></div><br>
+          <div class="col-md-12">
+            <input type="submit" value="Daftar" class="btn btn-outline-primary"  />
+          </div>
+        </form>
+      </div>
+    </section>
+	 <script>
+      function next(event, id) {
+        if (event.key == "Enter") {
+          event.preventDefault();
+          document.getElementById(id).focus();
+        }
+      }
+
+      function validasi() {
+        var nama = document.getElementById("inputNama").value;
+        var email = document.getElementById("inputEmail").value;
+        var password = document.getElementById("inputPassword").value;
+        var password2 = document.getElementById("inputPassword2").value;
+        if (nama != "" && email != "" && password != "" && password2 != "") {
+			alert("Data telah Dikirim");
+          return true;
+        } else {
+			alert("Lengkapi data terlebih dahulu");
+        }
+      }
+    </script>
 </body>
 </html>
